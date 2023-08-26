@@ -9,6 +9,8 @@
   - **api rest** [github](https://github.com/infoweb-pos/2023-revisao-api/)
 
 ## Sumário
+1. Criar os projetos iniciais
+2. 
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
@@ -26,7 +28,8 @@
 ```console
 $ mkdir app-revisao && cd $_
 
-[app-revisao] $ npm create vite@latest
+$ npm create vite@latest
+
 Need to install the following packages:
 create-vite@4.4.1
 Ok to proceed? (y) y
@@ -42,9 +45,9 @@ Done. Now run:
   npm install
   npm run dev
 
-[app-revisao] $ code app-web
+$ code app-web
 
-[app-revisao] $ npx @nestjs/cli new app-api
+$ npx @nestjs/cli new app-api
 Need to install the following packages:
 @nestjs/cli@10.1.16
 Ok to proceed? (y) y
@@ -82,6 +85,27 @@ $ npm run start
                                          
                🍷  Donate: https://opencollective.com/nest
 
-[app-revisao] $ code app-api
+$ code app-api
 
 ```
+
+
+
+# 2. Configurar projeto app-api
+1. Adicionar bibliotecas ao projeto app-api
+2. Configurar o repositório SQLite para memória
+3. 
+
+```console
+$ npm add @nestjs/typeorm typeorm sqlite3
+npm WARN deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+
+added 782 packages, and audited 783 packages in 2m
+
+103 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+```
+
