@@ -11,7 +11,7 @@
 ## Sumário
 1. Criar os projetos iniciais
 2. Configurar projeto app-api
-3. Adicionar rota `/tarefas` e suas sub-rotas, programando o criar `tarefa`
+3. Adicionar rota `/tarefas` e suas sub-rotas (criar e recuperar todas)
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
@@ -208,6 +208,8 @@ $ npm run start:dev
 4. Configurar o entidade e dto de criação de `tarefas` editando os arquivos `./src/tarefas/entities/tarefa.entity.ts` e `./src/tarefas/dto/create-tarefa.dto.ts`.
 5. Configurar (repositório e entidade) o módulo de `tarefas` editando o arquivo `./src/tarefas/tarefas.module.ts`.
 6. Configurar (repositório e entidade) o serviço de `tarefas` editando o arquivo (importações e adicionando construtor) `./src/tarefas/tarefas.service.ts`.
+7. Adicionar ao serviço `tarefas` o criar nova tarefa e recuperar todas as tarefas - `./src/tarefas/tarefas.service.ts`.
+8. Modificar o controlador de rotas `tarefas` (`/tarefas`) para retornar a tarefa nova (`POST`) e todas as tarefas (`GET`).
 
 ```console
 $ npx nest generate resource tarefas --no-spec
@@ -332,7 +334,7 @@ export class TarefasService {
 
 ```
 
-arquivo `./src/tarefas/tarefas.service.ts` - criar entidade no repositório
+arquivo `./src/tarefas/tarefas.service.ts` - criar entidade no repositório e recuperar todas tarefas
 ```ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -353,7 +355,7 @@ export class TarefasService {
   }
 
   findAll() {
-    return `This action returns all tarefas`;
+    return this.tarefaRepository.find();
   }
 
   findOne(id: number) {
@@ -400,8 +402,12 @@ export class TarefasController {
   }
 
   @Get()
-  findAll() {
-    return this.tarefasService.findAll();
+  async findAll() {
+    return {
+      estado: 'ok',
+      mensagem: 'todas as tarefas listadas',
+      dados: await this.tarefasService.findAll(),
+    };
   }
 
   @Get(':id')
@@ -419,6 +425,7 @@ export class TarefasController {
     return this.tarefasService.remove(+id);
   }
 }
+
 ```
 
 ---
