@@ -13,7 +13,10 @@
 2. [Configurar projeto app-api](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#2-configurar-projeto-app-api)
 3. [Adicionar rota `/tarefas` e suas sub-rotas (criar e recuperar todas)](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#3-adicionar-rota-tarefas-e-suas-sub-rotas--criar-e-recuperar-todas)
 4. [Configurar projeto app-web](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#4-configurar-projeto-app-web)
-5. 
+5. [Montar a tela com componentes]()
+6. [Montar a lista de tarefas]()
+7. [Criar uma nova tarefa]()
+8. [Ligar o projeto web a API]()
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
@@ -468,7 +471,95 @@ VITE v4.4.9  ready in 612 ms
 
 ```
 
-# 5. 
-arquivo ``
+# 5. Montando a tela com componentes
+1. Remover importações do arquivo `./src/main.tsx`.
+2. Adicionar componente organização de layout.
+3. Adicionar componente de barra de navagação do aplicativo
+4. Adicionar componente de conteúdo do aplicativo
+5. Adicionar os componentes ao aplicativo
+
+arquivo `./src/main.tsx`
 ```ts
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
 ```
+arquivo `./src/componentes/AppLayout.tsx`
+```ts
+const AppLayout = ({ children }) => {
+	return (
+		<>
+			<p>Layout</p>
+			{children}
+		</>
+	);
+};
+
+export default AppLayout;
+
+```
+
+arquivo `./src/componentes/AppNavBar.tsx`
+```ts
+const AppNavBar = () => {
+	return (
+		<>
+			<p>nav bar</p>
+		</>
+	);
+};
+
+export default AppNavBar;
+
+```
+
+arquivo `./src/componentes/AppTarefas.tsx`
+```ts
+const AppTarefas = () => {
+	return (
+		<>
+			<p>Tarefas</p>
+		</>
+	);
+};
+
+export default AppTarefas;
+
+```
+
+arquivo `./src/App.tsx`
+```ts
+import { useState } from "react";
+
+import AppLayout from "./componentes/AppLayout";
+import AppNavBar from "./componentes/AppNavBar";
+import AppTarefas from "./componentes/AppTarefas";
+
+function App() {
+  const [tarefaNova] = useState(undefined);
+  const [tarefas] = useState(undefined);
+
+  return (
+    <AppLayout>
+      <AppNavBar />
+      <AppTarefas tarefa={tarefaNova} tarefas={tarefas} />
+    </AppLayout>
+  )
+};
+
+export default App;
+
+```
+
+# 6. Montar a lista de tarefas
+
+# 7. Criar uma nova tarefa
+
+# 8. Ligar o projeto web a API
