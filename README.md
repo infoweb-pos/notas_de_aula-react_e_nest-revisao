@@ -438,7 +438,8 @@ export class TarefasController {
 2. Entrar na pasta do projeto
 3. Adicionar bibliotecas ao projeto
 4. Abrir o projeto no VS Code
-5. Executar o projeto web
+5. Editar o arquivo index.html para incluir fontes e ícones
+6. Executar o projeto web
 
 ```console
 $ $ npm i axios
@@ -468,6 +469,36 @@ VITE v4.4.9  ready in 612 ms
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
   ➜  press h to show help
+
+```
+
+arquivo `index.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tarefas</title>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
+</html>
 
 ```
 
