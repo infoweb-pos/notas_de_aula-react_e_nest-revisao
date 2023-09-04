@@ -10,7 +10,8 @@
 
 ## Sumário
 1. Criar os projetos iniciais
-2. 
+2. Configurar projeto app-api
+3. Adicionar rota `/tarefas` e suas sub-rotas, programando o criar `tarefa`
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
@@ -93,8 +94,11 @@ $ code app-api
 
 # 2. Configurar projeto app-api
 1. Adicionar bibliotecas ao projeto app-api
-2. Configurar o repositório SQLite para memória
-3. 
+2. Criar o arquivo `./src/ormconfig.ts`
+3. Configurar o repositório SQLite para memória modificando o arquivo `./src/ormconfig.ts`
+4. Modificar o arquivo `./src/app.module.ts` para usar a configuração de acesso ao repositório.
+5. Configurar rota raiz `/` editando os arquivos `./src/app.controller.ts` e `./src/app.service.ts`.
+6. Executar projeto API em modo desenvolvedor.
 
 ```console
 $ npm add @nestjs/typeorm typeorm sqlite3
@@ -109,3 +113,315 @@ found 0 vulnerabilities
 
 ```
 
+arquivo `./src/ormconfig.ts`
+```ts
+import { DataSourceOptions } from 'typeorm';
+
+export const config: DataSourceOptions = {
+  type: 'sqlite',
+  database: ':memory:',
+  dropSchema: true,
+  synchronize: true,
+  entities: [__dirname + '/**/entities/*.entity{.ts,.js}'],
+};
+
+```
+
+arquivo `./src/app.module.ts`
+```ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { config } from './ormconfig';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+@Module({
+  imports: [TypeOrmModule.forRoot(config)],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+```
+
+arquivos `./src/app.controller.ts`
+```ts
+import { Controller, Get, Res, HttpStatus } from '@nestjs/common';
+import { AppService } from './app.service';
+import { Response } from 'express';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(@Res() response: Response) {
+    response.status(HttpStatus.OK).json(this.appService.getHello());
+  }
+}
+
+```
+
+arquivos `./src/app.service.ts`
+```ts
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+  getHello() {
+    return {
+      estado: 'ok',
+      mensagem: 'API Online',
+      dados: 'API exemplo da disciplina de POS',
+    };
+  }
+}
+
+```
+
+```console
+$ npm run start:dev
+[06:05:25] Starting compilation in watch mode...
+
+[06:05:28] Found 0 errors. Watching for file changes.
+
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [NestFactory] Starting Nest application...
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [InstanceLoader] TypeOrmModule dependencies initialized +92ms
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [InstanceLoader] AppModule dependencies initialized +1ms
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [InstanceLoader] TypeOrmCoreModule dependencies initialized +25ms
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [RoutesResolver] AppController {/}: +13ms
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [RouterExplorer] Mapped {/, GET} route +3ms
+[Nest] 50578  - 04/09/2023, 06:05:29     LOG [NestApplication] Nest application successfully started +4ms
+
+```
+
+
+# 3. Adicionar rota `/tarefas` e suas sub-rotas, programando o criar `tarefa`
+1. Abrir um novo terminal.
+2. Criar rota `/tarefas` para um CRUD Rest API.
+   - Lembrar de responder
+     - Para a pergunta **? What transport layer do you use?** responder **REST API**.
+     - Para a pergunta **? Would you like to generate CRUD entry points?** responder **Yes**.
+3. Verificar no log de desenvolvedor se as rotas `/tarefas` foram adicionadas.
+4. Configurar o entidade e dto de criação de `tarefas` editando os arquivos `./src/tarefas/entities/tarefa.entity.ts` e `./src/tarefas/dto/create-tarefa.dto.ts`.
+5. Configurar (repositório e entidade) o módulo de `tarefas` editando o arquivo `./src/tarefas/tarefas.module.ts`.
+6. Configurar (repositório e entidade) o serviço de `tarefas` editando o arquivo (importações e adicionando construtor) `./src/tarefas/tarefas.service.ts`.
+
+```console
+$ npx nest generate resource tarefas --no-spec
+? What transport layer do you use? REST API
+? Would you like to generate CRUD entry points? Yes
+CREATE src/tarefas/tarefas.controller.ts (936 bytes)
+CREATE src/tarefas/tarefas.module.ts (262 bytes)
+CREATE src/tarefas/tarefas.service.ts (637 bytes)
+CREATE src/tarefas/dto/create-tarefa.dto.ts (32 bytes)
+CREATE src/tarefas/dto/update-tarefa.dto.ts (177 bytes)
+CREATE src/tarefas/entities/tarefa.entity.ts (23 bytes)
+UPDATE package.json (2070 bytes)
+UPDATE src/app.module.ts (440 bytes)
+✔ Packages installed successfully.
+
+$ 
+
+```
+
+```console
+...
+[06:12:02] Found 0 errors. Watching for file changes.
+
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [NestFactory] Starting Nest application...
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [InstanceLoader] TypeOrmModule dependencies initialized +79ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [InstanceLoader] AppModule dependencies initialized +0ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [InstanceLoader] TarefasModule dependencies initialized +0ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [InstanceLoader] TypeOrmCoreModule dependencies initialized +30ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RoutesResolver] AppController {/}: +13ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RouterExplorer] Mapped {/, GET} route +5ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RoutesResolver] TarefasController {/tarefas}: +0ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RouterExplorer] Mapped {/tarefas, POST} route +1ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RouterExplorer] Mapped {/tarefas, GET} route +1ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RouterExplorer] Mapped {/tarefas/:id, GET} route +2ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RouterExplorer] Mapped {/tarefas/:id, PATCH} route +1ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [RouterExplorer] Mapped {/tarefas/:id, DELETE} route +1ms
+[Nest] 51213  - 04/09/2023, 06:12:03     LOG [NestApplication] Nest application successfully started +5ms
+
+```
+
+arquivo `./src/tarefas/entities/tarefa.entity.ts`
+```ts
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class Tarefa {
+  @PrimaryGeneratedColumn('increment')
+  id: number;
+
+  @Column()
+  titulo: string;
+
+  @Column({ default: false })
+  realizado: boolean;
+}
+
+```
+
+arquivo `./src/tarefas/dto/create-tarefa.dto.ts`
+```ts
+export class CreateTarefaDto {
+  titulo: string;
+}
+
+```
+
+arquivo `./src/tarefas/tarefas.module.ts`
+```ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { TarefasService } from './tarefas.service';
+import { TarefasController } from './tarefas.controller';
+import { Tarefa } from './entities/tarefa.entity';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Tarefa])],
+  controllers: [TarefasController],
+  providers: [TarefasService],
+})
+export class TarefasModule {}
+
+```
+
+
+arquivo `./src/tarefas/tarefas.service.ts` - importações e construtor
+```ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+import { Tarefa } from './entities/tarefa.entity';
+
+@Injectable()
+export class TarefasService {
+  constructor(
+    @InjectRepository(Tarefa) private tarefaRepository: Repository<Tarefa>,
+  ) {}
+
+  create(createTarefaDto: CreateTarefaDto) {
+    return 'This action adds a new tarefa';
+  }
+
+  findAll() {
+    return `This action returns all tarefas`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} tarefa`;
+  }
+
+  update(id: number, updateTarefaDto: UpdateTarefaDto) {
+    return `This action updates a #${id} tarefa`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} tarefa`;
+  }
+}
+
+```
+
+arquivo `./src/tarefas/tarefas.service.ts` - criar entidade no repositório
+```ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+import { Tarefa } from './entities/tarefa.entity';
+
+@Injectable()
+export class TarefasService {
+  constructor(
+    @InjectRepository(Tarefa) private tarefaRepository: Repository<Tarefa>,
+  ) {}
+
+  create(createTarefaDto: CreateTarefaDto) {
+    return this.tarefaRepository.save(createTarefaDto);
+  }
+
+  findAll() {
+    return `This action returns all tarefas`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} tarefa`;
+  }
+
+  update(id: number, updateTarefaDto: UpdateTarefaDto) {
+    return `This action updates a #${id} tarefa`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} tarefa`;
+  }
+}
+
+```
+
+arquivo `./src/tarefas/tarefas.controller.ts`
+```ts
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { TarefasService } from './tarefas.service';
+import { CreateTarefaDto } from './dto/create-tarefa.dto';
+import { UpdateTarefaDto } from './dto/update-tarefa.dto';
+
+@Controller('tarefas')
+export class TarefasController {
+  constructor(private readonly tarefasService: TarefasService) {}
+
+  @Post()
+  async create(@Body() createTarefaDto: CreateTarefaDto) {
+    return {
+      estado: 'ok',
+      mensagem: 'tarefa criada',
+      dados: await this.tarefasService.create(createTarefaDto),
+    };
+  }
+
+  @Get()
+  findAll() {
+    return this.tarefasService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.tarefasService.findOne(+id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateTarefaDto: UpdateTarefaDto) {
+    return this.tarefasService.update(+id, updateTarefaDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tarefasService.remove(+id);
+  }
+}
+```
+
+---
+arquivo `./src/tarefas/tarefas.module.ts`
+```ts
+```
