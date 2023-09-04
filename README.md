@@ -12,6 +12,8 @@
 1. Criar os projetos iniciais
 2. Configurar projeto app-api
 3. Adicionar rota `/tarefas` e suas sub-rotas (criar e recuperar todas)
+4. Configurar projeto app-web
+5. 
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
@@ -198,7 +200,7 @@ $ npm run start:dev
 ```
 
 
-# 3. Adicionar rota `/tarefas` e suas sub-rotas, programando o criar `tarefa`
+# 3. Adicionar rota `/tarefas` e suas sub-rotas  (criar e recuperar todas)
 1. Abrir um novo terminal.
 2. Criar rota `/tarefas` para um CRUD Rest API.
    - Lembrar de responder
@@ -428,7 +430,45 @@ export class TarefasController {
 
 ```
 
----
-arquivo `./src/tarefas/tarefas.module.ts`
+# 4. Configurar projeto app-web
+1. Abrir novo terminarl
+2. Entrar na pasta do projeto
+3. Adicionar bibliotecas ao projeto
+4. Abrir o projeto no VS Code
+5. Executar o projeto web
+
+```console
+$ $ npm i axios
+
+added 212 packages, and audited 213 packages in 41s
+
+41 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+$  npm i @mui/material @mui/styled-engine-sc styled-components
+
+added 46 packages, and audited 259 packages in 19s
+
+52 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+$ code .
+
+$ npm run dev
+
+VITE v4.4.9  ready in 612 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+
+```
+
+# 5. 
+arquivo ``
 ```ts
 ```
