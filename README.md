@@ -13,10 +13,10 @@
 2. [Configurar projeto app-api](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#2-configurar-projeto-app-api)
 3. [Adicionar rota `/tarefas` e suas sub-rotas (criar e recuperar todas)](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#3-adicionar-rota-tarefas-e-suas-sub-rotas--criar-e-recuperar-todas)
 4. [Configurar projeto app-web](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#4-configurar-projeto-app-web)
-5. [Montar a tela com componentes]()
-6. [Montar a lista de tarefas]()
-7. [Criar uma nova tarefa]()
-8. [Ligar o projeto web a API]()
+5. [Montar a tela com componentes](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#5-montando-a-tela-com-componentes)
+6. [Montar a lista de tarefas](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#6-montar-a-lista-de-tarefas)
+7. [Criar uma nova tarefa](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#7-criar-uma-nova-tarefa)
+8. [Ligar o projeto web a API](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#8-ligar-o-projeto-web-a-api)
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
