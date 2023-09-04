@@ -451,7 +451,7 @@ added 212 packages, and audited 213 packages in 41s
 
 found 0 vulnerabilities
 
-$  npm i @mui/material @mui/styled-engine-sc styled-components
+$  npm i @mui/material @emotion/react @emotion/styled @mui/styled-engine-sc styled-components @mui/icons-material
 
 added 46 packages, and audited 259 packages in 19s
 
@@ -508,6 +508,7 @@ arquivo `index.html`
 3. Adicionar componente de barra de navagação do aplicativo
 4. Adicionar componente de conteúdo do aplicativo
 5. Adicionar os componentes ao aplicativo
+6. Modificar os componentes da aplicação adicionando componentes `mui`
 
 arquivo `./src/main.tsx`
 ```ts
@@ -586,6 +587,134 @@ function App() {
 };
 
 export default App;
+
+```
+
+arquivo `./src/componentes/AppLayout.tsx`
+```ts
+import { Box } from "@mui/material";
+
+const AppLayout = ({ children }) => {
+	return (
+		<Box>
+			{children}
+		</Box>
+	);
+};
+
+export default AppLayout;
+
+```
+
+arquivo `./src/componentes/AppNavBar.tsx`
+```ts
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
+export default function AppNavBar() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}
+
+```
+
+arquivo `./src/componentes/AppTarefas.tsx`
+```ts
+import * as React from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Checkbox from "@mui/material/Checkbox";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+const AppTarefas = () => {
+	const [checked, setChecked] = React.useState([0]);
+
+	const handleToggle = (value: number) => () => {
+		const currentIndex = checked.indexOf(value);
+		const newChecked = [...checked];
+
+		if (currentIndex === -1) {
+			newChecked.push(value);
+		} else {
+			newChecked.splice(currentIndex, 1);
+		}
+
+		setChecked(newChecked);
+	};
+
+	return (
+		<List
+			sx={{ width: "100%", bgcolor: "background.paper" }}
+		>
+			{[0, 1, 2, 3].map((value) => {
+				const labelId = `checkbox-list-label-${value}`;
+
+				return (
+					<ListItem
+						key={value}
+						secondaryAction={
+							<IconButton edge="end" aria-label="comments">
+								<DeleteIcon />
+							</IconButton>
+						}
+						disablePadding
+					>
+						<ListItemButton
+							role={undefined}
+							onClick={handleToggle(value)}
+							dense
+						>
+							<ListItemIcon>
+								<Checkbox
+									edge="start"
+									checked={checked.indexOf(value) !== -1}
+									tabIndex={-1}
+									disableRipple
+									inputProps={{ "aria-labelledby": labelId }}
+								/>
+							</ListItemIcon>
+							<ListItemText
+								id={labelId}
+								primary={`Line item ${value + 1}`}
+							/>
+						</ListItemButton>
+					</ListItem>
+				);
+			})}
+		</List>
+	);
+};
+
+export default AppTarefas;
 
 ```
 
