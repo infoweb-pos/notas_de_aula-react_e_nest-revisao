@@ -9,10 +9,10 @@
   - **api rest** [github](https://github.com/infoweb-pos/2023-revisao-api/)
 
 ## Sumário
-1. Criar os projetos iniciais
-2. Configurar projeto app-api
-3. Adicionar rota `/tarefas` e suas sub-rotas (criar e recuperar todas)
-4. Configurar projeto app-web
+1. [Criar os projetos iniciais](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#1-criar-os-projetos-iniciais)
+2. [Configurar projeto app-api](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#2-configurar-projeto-app-api)
+3. [Adicionar rota `/tarefas` e suas sub-rotas (criar e recuperar todas)](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#3-adicionar-rota-tarefas-e-suas-sub-rotas--criar-e-recuperar-todas)
+4. [Configurar projeto app-web](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#4-configurar-projeto-app-web)
 5. 
 
 # 1. Criar os projetos iniciais
