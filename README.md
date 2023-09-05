@@ -719,6 +719,9 @@ export default AppTarefas;
 ```
 
 # 6. Montar a lista de tarefas
+1. Criar um componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v1.md)
+2. Copiar o conteúdo de `ListItem` para o componente interno `TarefaListaItem`.
+3. 
 
 # 7. Criar uma nova tarefa
 
