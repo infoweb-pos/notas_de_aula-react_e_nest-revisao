@@ -719,9 +719,51 @@ export default AppTarefas;
 ```
 
 # 6. Montar a lista de tarefas
-1. Criar um componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v1.md)
-2. Copiar o conteúdo de `ListItem` para o componente interno `TarefaListaItem`.
-3. 
+1. Adicinar uma lista de tarefas em `App.tsx`, ver abaixo arquivo ou no [link](src/step-6/App.md)
+2. Criar um componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v1.md)
+3. Copiar o conteúdo da _arrow function_ `[0, 1, 2, 3].map((value) =>` para o componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v2.md)
+4. Corrigir os erros e apagar as linhas 16 e 26 do componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v3.md)
+   - Apagar
+     - linha 16 - `key={value}` - o `key` irá permanecer no componente principal.
+     - linha 26 - `onClick={handleToggle(value)}` - o tratamento do clique do mouse irá mudar
+   - Modificar os `value`
+     - linha 12 - de `value` para `props.tarefa.id`
+     - linha 30 - de `value` para `props.tarefa.realizado`
+     - linha 12 - de ```primary={`Line item ${value + 1}`}``` para `primary={props.tarefa.titulo}`
+6. Subistituir _item da lista_ pelo componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v4.md)
+   - Linha 42 - de `const AppTarefas = () => {` para `const AppTarefas = (props) => {`
+   - Linhas 60 a 94 por `{props.tarefas.map((tarefa) => <TarefaListaItem key={tarefa.id} tarefa={tarefa}/>)}`
+   - Apagar a função `handleToggle`, linhas 45 a 56
+   - Apagar o estado `checked`, linha 43
+7. 
+
+arquivo `./src/App.tsx`
+```ts
+import { useState } from "react";
+
+import AppLayout from "./componentes/AppLayout";
+import AppNavBar from "./componentes/AppNavBar";
+import AppTarefas from "./componentes/AppTarefas";
+
+function App() {
+	const [tarefaNova] = useState("");
+	const [tarefas] = useState([
+    {id: 1, titulo: "componentizar gui", realizado: false},
+    {id: 2, titulo: "montar gui com componentes", realizado: false},
+    {id: 3, titulo: "criar a API com método GET", realizado: true},
+  ]);
+
+	return (
+    <AppLayout>
+      <AppNavBar />
+      <AppTarefas tarefa={tarefaNova} tarefas={tarefas} />
+    </AppLayout>
+	);
+}
+
+export default App;
+
+```
 
 # 7. Criar uma nova tarefa
 
