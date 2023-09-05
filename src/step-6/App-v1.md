@@ -1,4 +1,4 @@
-# App.tsx - passo 6
+# App.tsx - passo 6 - versão 1
 
 arquivo `./src/App.tsx`
 ```ts
