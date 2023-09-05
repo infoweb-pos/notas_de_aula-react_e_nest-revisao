@@ -1,4 +1,4 @@
-# AppTarefas.tsx - Passo 7 - Versão 3
+# AppTarefas.tsx - Passo 6 - Versão 3
 
 
 arquivo `./src/componentes/AppTarefas.tsx`
