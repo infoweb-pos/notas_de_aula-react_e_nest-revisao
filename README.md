@@ -15,8 +15,8 @@
 4. [Configurar projeto app-web](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#4-configurar-projeto-app-web)
 5. [Montar a tela com componentes](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#5-montando-a-tela-com-componentes)
 6. [Montar a lista de tarefas](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#6-montar-a-lista-de-tarefas)
-7. [Criar uma nova tarefa](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#7-criar-uma-nova-tarefa)
-8. [Ligar o projeto web a API](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#8-ligar-o-projeto-web-a-api)
+7. FIXME [Criar uma nova tarefa](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#7-criar-uma-nova-tarefa)
+8. FIXME [Ligar o projeto web a API](https://github.com/infoweb-pos/notas_de_aula-react_e_nest-revisao/blob/main/README.md#8-ligar-o-projeto-web-a-api)
 
 # 1. Criar os projetos iniciais
 1. Criar diretório da aplicação
@@ -735,7 +735,17 @@ export default AppTarefas;
    - Linhas 60 a 94 por `{props.tarefas.map((tarefa) => <TarefaListaItem key={tarefa.id} tarefa={tarefa}/>)}`
    - Apagar a função `handleToggle`, linhas 45 a 56
    - Apagar o estado `checked`, linha 43
-7. 
+7. Criar uma interface `InterfaceTarefa` para corrigir os erros no arquivo `AppTarefas.tsx` [link](src/step-6/AppTarefas-v5.md)
+8. Exportar interface `InterfaceTarefa` para um novo arquivo, ver arquivo abaixo `./src/interfaces/Tarefa.ts` ou [link](src/step-6/Tarefa.md)
+   - o arquivo `AppTarefas.tsx` importa a interface `InterfaceTarefa` [link](src/step-6/AppTarefas-v6.md)
+   - lembrar de apagar a interface `InterfaceTarefa` do arquivo `AppTarefas.tsx`
+10. Exportar componente interno `TarefaListaItem` para um novo arquivo [link](src/step-6/TarefaListaItem-v1.md)
+   - o arquivo `AppTarefas.tsx` importa o componente `TarefaListaItem` [link](src/step-6/AppTarefas-v7.md)
+   - lembrar de apagar o componente `TarefaListaItem` do arquivo `AppTarefas.tsx`
+11. FIXME Criar uma função `handleTarefaApagar` para apagar tarefa no arquivo `App.tsx` 
+12. FIXME Adicionar função de apagar tarefa nos componente `AppTarefas` e `TarefaListaItem`
+13. FIXME Criar uma função `handleTarefaRealizadar` para marcar como realizada a tarefa no arquivo `App.tsx`
+14. FIXME Adicionar função de marcar como realizada a tarefa nos componente `AppTarefas` e `TarefaListaItem`
 
 arquivo `./src/App.tsx`
 ```ts
@@ -762,6 +772,16 @@ function App() {
 }
 
 export default App;
+
+```
+
+arquivo `./src/interfaces/Tarefa.ts`
+```ts
+export interface InterfaceTarefa {
+	id: number;
+	titulo: string;
+	realizado: boolean;
+}
 
 ```
 
