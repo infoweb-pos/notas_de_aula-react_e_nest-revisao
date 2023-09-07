@@ -730,34 +730,129 @@ export default AppTarefas;
      - linha 12 - de `value` para `props.tarefa.id`
      - linha 30 - de `value` para `props.tarefa.realizado`
      - linha 12 - de ```primary={`Line item ${value + 1}`}``` para `primary={props.tarefa.titulo}`
-6. Subistituir _item da lista_ pelo componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v4.md)
+5. Subistituir _item da lista_ pelo componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v4.md)
    - Linha 42 - de `const AppTarefas = () => {` para `const AppTarefas = (props) => {`
    - Linhas 60 a 94 por `{props.tarefas.map((tarefa) => <TarefaListaItem key={tarefa.id} tarefa={tarefa}/>)}`
    - Apagar a função `handleToggle`, linhas 45 a 56
    - Apagar o estado `checked`, linha 43
-7. Criar uma interface `InterfaceTarefa` para corrigir os erros no arquivo `AppTarefas.tsx` [link](src/step-6/AppTarefas-v5.md)
-8. Exportar interface `InterfaceTarefa` para um novo arquivo, ver arquivo abaixo `./src/interfaces/Tarefa.ts` ou [link](src/step-6/Tarefa.md)
-   - o arquivo `AppTarefas.tsx` importa a interface `InterfaceTarefa` [link](src/step-6/AppTarefas-v6.md)
-   - lembrar de apagar a interface `InterfaceTarefa` do arquivo `AppTarefas.tsx`
-10. Exportar componente interno `TarefaListaItem` para um novo arquivo [link](src/step-6/TarefaListaItem-v1.md)
+6. Criar uma interface `InterfaceTarefa` para corrigir os erros no arquivo `AppTarefas.tsx` [link](src/step-6/AppTarefas-v5.md)
+7. Exportar interface `InterfaceTarefa` para um novo arquivo, ver arquivo abaixo `./src/interfaces/Tarefa.ts` ou [link](src/step-6/Tarefa.md) 
+8. Substituir a interface interna por a importação no arquivo `AppTarefas.tsx` [link](src/step-6/AppTarefas-v6.md)
+   - Linhas 11 a 15, apagar a interface interna `InterfaceTarefa` do arquivo `AppTarefas.tsx`
+   - Linha 11, importar a interface `InterfaceTarefa` no arquivo `AppTarefas.tsx`
+9. Exportar componente interno `TarefaListaItem` para um novo arquivo [link](src/step-6/TarefaListaItem-v1.md)
    - o arquivo `AppTarefas.tsx` importa o componente `TarefaListaItem` [link](src/step-6/AppTarefas-v7.md)
    - lembrar de apagar o componente `TarefaListaItem` do arquivo `AppTarefas.tsx`
-11. Criar uma função `handleTarefaApagar` para apagar tarefa no arquivo `App.tsx` [link](src/step-6/App-v2.md)
+10. Criar uma função `handleTarefaApagar` para apagar tarefa no arquivo `App.tsx` [link](src/step-6/App-v2.md)
     - Adicionado as linhas 16 a 21 com a função `handleTarefaApagar`
-12. Repassar função de apagar tarefa de `App.tsx` `App.tsx` [link](src/step-6/App-v3.md) nos componente `AppTarefas` [link](src/step-6/AppTarefas-v8.md) e `TarefaListaItem` [link](src/step-6/TarefaListaItem-v2.md)
-    - `./src/App.tsx`
-      - Adicionado linha 29 em `App.tsx` com `cliqueParaApagar={handleTarefaApagar}`
-    - `./src/componentes/AppTarefas.tsx`
+11. Repassar função de apagar tarefa de `App.tsx` `App.tsx` [link](src/step-6/App-v3.md) nos componente `AppTarefas` [link](src/step-6/AppTarefas-v8.md) e `TarefaListaItem` [link](src/step-6/TarefaListaItem-v2.md)
+    - [./src/App.tsx](src/step-6/App-v3.md)
+      - Adicionado linha 29 em `App.tsx` com `funcaoApagar={handleTarefaApagar}`
+    - [./src/componentes/AppTarefas.tsx](src/step-6/AppTarefas-v8.md)
       - Adicionado linha 9 em `AppTarefas.tsx` com `funcaoApagar: (tarefa: InterfaceTarefa) => void;`
       - Adicionado linha 17 em `AppTarefas.tsx` com `cliqueParaApagar={props.funcaoApagar}`
-    - `./src/componentes/Tarefa/TarefaListaItem.tsx`
+    - [./src/componentes/Tarefa/TarefaListaItem.tsx](src/step-6/TarefaListaItem-v2.md)
       - Adicionado linha 14 em `AppTarefas.tsx` com `cliqueParaApagar: (tarefa: InterfaceTarefa) => void;`
       - Adicionado linha 25 em `AppTarefas.tsx` com `onClick={() => props.cliqueParaApagar(props.tarefa)}`
-13. FIXME Criar uma função `handleTarefaRealizadar` para marcar como realizada a tarefa no arquivo `App.tsx`
-14. FIXME Adicionar função de marcar como realizada a tarefa nos componente `AppTarefas` e `TarefaListaItem`
+12. Criar uma função `handleTarefaFinalizar` para marcar como realizada a tarefa no arquivo `App.tsx` [link](src/step-6/App-v4.md)
+    - Adicionado as linhas 23 a 35 com a função `handleTarefaFinalizar`
+13. Adicionar função de marcar como realizada a tarefa nos componente `AppTarefas` e `TarefaListaItem`
+    - [./src/App.tsx](src/step-6/App-v5.md)
+      - Adicionado linha 44 em `App.tsx` com `funcaoFinalizar={handleTarefaFinalizar}`
+    - [./src/componentes/AppTarefas.tsx](src/step-6/AppTarefas-v9.md)
+      - Adicionado linha 10 em `AppTarefas.tsx` com `funcaoFinalizar: (id: number) => void;`
+      - adicionado linha 19 em `AppTarefas.tsx` com `cliqueParaFinalizar={props.funcaoFinalizar}`
+    - [./src/componentes/Tarefa/TarefaListaItem.tsx](src/step-6/TarefaListaItem-v2.md)
+      - Adicionado linha 15 em `AppTarefas.tsx` com `cliqueParaFinalizar: (identificador: number) => void;`
+      - Substituir a linha 33 pelas linhas 33 a 37 em `AppTarefas.tsx`
 
+arquivo `./src/App.tsx` versão 5 final
+```ts
+import { useState } from "react";
 
-arquivo `./src/interfaces/Tarefa.ts`
+import AppLayout from "./componentes/AppLayout";
+import AppNavBar from "./componentes/AppNavBar";
+import AppTarefas from "./componentes/AppTarefas";
+import { InterfaceTarefa } from "./interfaces/Tarefa";
+
+function App() {
+	const [tarefaNova] = useState("");
+	const [tarefas, setTarefas] = useState([
+		{ id: 1, titulo: "componentizar gui", realizado: false },
+		{ id: 2, titulo: "montar gui com componentes", realizado: false },
+		{ id: 3, titulo: "criar a API com método GET", realizado: true },
+	]);
+
+	const handleTarefaApagar = (tarefaParaExcluir: InterfaceTarefa) => {
+		const novaLista = tarefas.filter(
+			(tarefa) => tarefaParaExcluir.id !== tarefa.id
+		);
+		setTarefas(novaLista);
+	};
+
+	const handleTarefaFinalizar = (identificador: number) => {
+		const novaLista = tarefas.map((tarefa) => {
+			if (tarefa.id === identificador) {
+				return {
+					...tarefa,
+					realizado: !tarefa.realizado,
+				};
+			} else {
+				return tarefa;
+			}
+		});
+		setTarefas(novaLista);
+	};
+
+	return (
+		<AppLayout>
+			<AppNavBar />
+			<AppTarefas
+				tarefa={tarefaNova}
+				tarefas={tarefas}
+				funcaoApagar={handleTarefaApagar}
+				funcaoFinalizar={handleTarefaFinalizar}
+			/>
+		</AppLayout>
+	);
+}
+
+export default App;
+
+```
+
+arquivo `./src/componentes/AppTarefas.tsx` versão 9 final
+```ts
+import * as React from "react";
+import List from "@mui/material/List";
+
+import { InterfaceTarefa } from "../interfaces/Tarefa";
+import { TarefaListaItem } from "./tarefa/TarefaListaItem";
+
+const AppTarefas = (props: {
+	tarefas: Array<InterfaceTarefa>;
+	funcaoApagar: (tarefa: InterfaceTarefa) => void;
+	funcaoFinalizar: (id: number) => void;
+}) => {
+	return (
+		<List sx={{ width: "100%", bgcolor: "background.paper" }}>
+			{props.tarefas.map((tarefa) => (
+				<TarefaListaItem
+					key={tarefa.id}
+					tarefa={tarefa}
+					cliqueParaApagar={props.funcaoApagar}
+					cliqueParaFinalizar={props.funcaoFinalizar}
+				/>
+			))}
+		</List>
+	);
+};
+
+export default AppTarefas;
+
+```
+
+arquivo `./src/interfaces/Tarefa.ts` versão única
 ```ts
 export interface InterfaceTarefa {
 	id: number;
@@ -766,6 +861,63 @@ export interface InterfaceTarefa {
 }
 
 ```
+
+arquivo `./src/componentes/Tarefa/TarefaListaItem.tsx` versão 3 final
+```tsx
+import * as React from "react";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Checkbox from "@mui/material/Checkbox";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+import { InterfaceTarefa } from "../../interfaces/Tarefa";
+
+export const TarefaListaItem = (props: {
+	tarefa: InterfaceTarefa;
+	cliqueParaApagar: (tarefa: InterfaceTarefa) => void;
+	cliqueParaFinalizar: (identificador: number) => void;
+}) => {
+	const labelId = `checkbox-list-label-${props.tarefa.id}`;
+
+	return (
+		<ListItem
+			key={props.tarefa.id}
+			secondaryAction={
+				<IconButton
+					edge="end"
+					aria-label="comments"
+					onClick={() => props.cliqueParaApagar(props.tarefa)}
+				>
+					<DeleteIcon />
+				</IconButton>
+			}
+			disablePadding
+		>
+			<ListItemButton
+				role={undefined}
+				dense
+				onClick={() => props.cliqueParaFinalizar(props.tarefa.id)}
+			>
+				<ListItemIcon>
+					<Checkbox
+						edge="start"
+						checked={props.tarefa.realizado}
+						tabIndex={-1}
+						disableRipple
+						inputProps={{ "aria-labelledby": labelId }}
+					/>
+				</ListItemIcon>
+				<ListItemText id={labelId} primary={props.tarefa.titulo} />
+			</ListItemButton>
+		</ListItem>
+	);
+};
+
+```
+
 
 # 7. Criar uma nova tarefa
 
