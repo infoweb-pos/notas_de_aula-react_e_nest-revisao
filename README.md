@@ -744,10 +744,15 @@ export default AppTarefas;
    - lembrar de apagar o componente `TarefaListaItem` do arquivo `AppTarefas.tsx`
 11. Criar uma função `handleTarefaApagar` para apagar tarefa no arquivo `App.tsx` [link](src/step-6/App-v2.md)
     - Adicionado as linhas 16 a 21 com a função `handleTarefaApagar`
-12. Repassar função de apagar tarefa de `App.tsx` `App.tsx` [link](src/step-6/App-v3.md) nos componente `AppTarefas` [link](src/step-6/AppTarefas-v8.md) e `TarefaListaItem` [link]()
-    - Adicionado linha 29 em `App.tsx` com `cliqueParaApagar={handleTarefaApagar}`
-    - Adicionado linha 9 em `AppTarefas.tsx` com `funcaoApagar: (tarefa: InterfaceTarefa) => void;`
-    - Adicionado linha 17 em `AppTarefas.tsx` com `cliqueParaApagar={props.funcaoApagar}`
+12. Repassar função de apagar tarefa de `App.tsx` `App.tsx` [link](src/step-6/App-v3.md) nos componente `AppTarefas` [link](src/step-6/AppTarefas-v8.md) e `TarefaListaItem` [link](src/step-6/TarefaListaItem-v2.md)
+    - `./src/App.tsx`
+      - Adicionado linha 29 em `App.tsx` com `cliqueParaApagar={handleTarefaApagar}`
+    - `./src/componentes/AppTarefas.tsx`
+      - Adicionado linha 9 em `AppTarefas.tsx` com `funcaoApagar: (tarefa: InterfaceTarefa) => void;`
+      - Adicionado linha 17 em `AppTarefas.tsx` com `cliqueParaApagar={props.funcaoApagar}`
+    - `./src/componentes/Tarefa/TarefaListaItem.tsx`
+      - Adicionado linha 14 em `AppTarefas.tsx` com `cliqueParaApagar: (tarefa: InterfaceTarefa) => void;`
+      - Adicionado linha 25 em `AppTarefas.tsx` com `onClick={() => props.cliqueParaApagar(props.tarefa)}`
 13. FIXME Criar uma função `handleTarefaRealizadar` para marcar como realizada a tarefa no arquivo `App.tsx`
 14. FIXME Adicionar função de marcar como realizada a tarefa nos componente `AppTarefas` e `TarefaListaItem`
 
