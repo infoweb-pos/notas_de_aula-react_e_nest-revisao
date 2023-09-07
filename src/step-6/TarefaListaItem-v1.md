@@ -14,14 +14,19 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import { InterfaceTarefa } from "../../interfaces/Tarefa";
 
-export const TarefaListaItem = (props : {tarefa: InterfaceTarefa}) => {
+export const TarefaListaItem = (props: {
+	tarefa: InterfaceTarefa;
+}) => {
 	const labelId = `checkbox-list-label-${props.tarefa.id}`;
 
 	return (
 		<ListItem
 			key={props.tarefa.id}
 			secondaryAction={
-				<IconButton edge="end" aria-label="comments">
+				<IconButton
+					edge="end"
+					aria-label="comments"
+				>
 					<DeleteIcon />
 				</IconButton>
 			}
