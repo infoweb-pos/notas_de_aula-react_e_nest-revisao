@@ -31,7 +31,7 @@ function App() {
 			<AppTarefas
 				tarefa={tarefaNova}
 				tarefas={tarefas}
-				cliqueParaApagar={handleTarefaApagar}
+				funcaoApagar={handleTarefaApagar}
 			/>
 		</AppLayout>
 	);
