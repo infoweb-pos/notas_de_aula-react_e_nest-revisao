@@ -719,7 +719,7 @@ export default AppTarefas;
 ```
 
 # 6. Montar a lista de tarefas
-1. Adicinar uma lista de tarefas em `App.tsx`, ver abaixo arquivo ou no [link](src/step-6/App.md)
+1. Adicinar uma lista de tarefas em `App.tsx` [link](src/step-6/App-v1.md)
 2. Criar um componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v1.md)
 3. Copiar o conteúdo da _arrow function_ `[0, 1, 2, 3].map((value) =>` para o componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v2.md)
 4. Corrigir os erros e apagar as linhas 16 e 26 do componente interno `TarefaListaItem` [link](src/step-6/AppTarefas-v3.md)
@@ -742,38 +742,15 @@ export default AppTarefas;
 10. Exportar componente interno `TarefaListaItem` para um novo arquivo [link](src/step-6/TarefaListaItem-v1.md)
    - o arquivo `AppTarefas.tsx` importa o componente `TarefaListaItem` [link](src/step-6/AppTarefas-v7.md)
    - lembrar de apagar o componente `TarefaListaItem` do arquivo `AppTarefas.tsx`
-11. FIXME Criar uma função `handleTarefaApagar` para apagar tarefa no arquivo `App.tsx` 
-12. FIXME Adicionar função de apagar tarefa nos componente `AppTarefas` e `TarefaListaItem`
+11. Criar uma função `handleTarefaApagar` para apagar tarefa no arquivo `App.tsx` [link](src/step-6/App-v2.md)
+    - Adicionado as linhas 16 a 21 com a função `handleTarefaApagar`
+12. Repassar função de apagar tarefa de `App.tsx` `App.tsx` [link](src/step-6/App-v3.md) nos componente `AppTarefas` [link](src/step-6/AppTarefas-v8.md) e `TarefaListaItem` [link]()
+    - Adicionado linha 29 em `App.tsx` com `cliqueParaApagar={handleTarefaApagar}`
+    - Adicionado linha 9 em `AppTarefas.tsx` com `funcaoApagar: (tarefa: InterfaceTarefa) => void;`
+    - Adicionado linha 17 em `AppTarefas.tsx` com `cliqueParaApagar={props.funcaoApagar}`
 13. FIXME Criar uma função `handleTarefaRealizadar` para marcar como realizada a tarefa no arquivo `App.tsx`
 14. FIXME Adicionar função de marcar como realizada a tarefa nos componente `AppTarefas` e `TarefaListaItem`
 
-arquivo `./src/App.tsx`
-```ts
-import { useState } from "react";
-
-import AppLayout from "./componentes/AppLayout";
-import AppNavBar from "./componentes/AppNavBar";
-import AppTarefas from "./componentes/AppTarefas";
-
-function App() {
-	const [tarefaNova] = useState("");
-	const [tarefas] = useState([
-    {id: 1, titulo: "componentizar gui", realizado: false},
-    {id: 2, titulo: "montar gui com componentes", realizado: false},
-    {id: 3, titulo: "criar a API com método GET", realizado: true},
-  ]);
-
-	return (
-    <AppLayout>
-      <AppNavBar />
-      <AppTarefas tarefa={tarefaNova} tarefas={tarefas} />
-    </AppLayout>
-	);
-}
-
-export default App;
-
-```
 
 arquivo `./src/interfaces/Tarefa.ts`
 ```ts
