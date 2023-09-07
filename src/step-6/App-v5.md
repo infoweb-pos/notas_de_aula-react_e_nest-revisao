@@ -26,7 +26,7 @@ function App() {
 	};
 
 	const handleTarefaFinalizar = (identificador: number) => {
-		return tarefas.map((tarefa) => {
+		const novaLista = tarefas.map((tarefa) => {
 			if (tarefa.id === identificador) {
 				return {
 					...tarefa,
@@ -36,6 +36,7 @@ function App() {
 				return tarefa;
 			}
 		});
+		setTarefas(novaLista);
 	};
 
 	return (
@@ -55,4 +56,4 @@ export default App;
 
 ```
 
-- adicionado linha 43 com `funcaoFinalizar={handleTarefaFinalizar}`
+- adicionado linha 44 com `funcaoFinalizar={handleTarefaFinalizar}`
