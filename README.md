@@ -920,5 +920,51 @@ export const TarefaListaItem = (props: {
 
 
 # 7. Criar uma nova tarefa
+1. Adicionar um container em `AppTarefas` [link versão 1](src/step-7/AppTarefas-v1.md)
+2. Criar o componente interno `TarefasLista` ao mover o `List` de `AppTarefas` para uma constante 
+   - Adicionar as linhas 7 a 11 com o componente interno `TarefasLista` vazio [link versão 2](src/step-7/AppTarefas-v2.md)
+   - Copiar o conteúdo de `<List>` até o `</List>` substituindo o `null` do componente interno `TarefasLista` [link versão 3](src/step-7/AppTarefas-v3.md)
+   - Corrigir os erros do componente interno `TarefasLista`, adicionando `props` ao componente [link versão 4](src/step-7/AppTarefas-v4.md)
+   - Substituir `<List>...</List>` pelo componente interno [link versão 5](src/step-7/AppTarefas-v5.md)
+3. Mover o componente interno `TarefasLista` para o novo arquivo `TarefaLista` [link versão única](src/step-7/TarefasLista.md)
+   - Criar arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
+   - Copiar o conteúdo do componente interno `TarefasLista` para o arquivo `./src/componentes/Tarefa/TarefaLista.tsx`, ajustar as importações e a exportação no arquivo.
+   - Apagar componente interno `TarefasLista` e importar o componente do arquivo `./src/componentes/Tarefa/TarefaLista.tsx` em `AppTarefas` [link versão 6](src/step-7/AppTarefas-v6.md)
+4. Criar o componente interno `TarefaNova` em `AppTarefas`
+   - Criar o componente imterno vazio `TarefaNova` [link versão 7](src/step-7/AppTarefas-v7.md)
+   - Adicionar o componente em `AppTarefas` [link versão 8](src/step-7/AppTarefas-v8.md)
+   - Montar componente interno `TarefaNova` com uma entrada de texto e um botão [link versão 9](src/step-7/AppTarefas-v9.md)
+5. FIXME Criar a função `handleTarefaNova` para adicionar uma nova tarefa no arquivo `App`
+6. FIXME Adicionar função de adicionar nova tarefa no componente `AppTarefas`
+7. FIXME Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
+
+arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
+```ts
+import * as React from "react";
+import { List } from "@mui/material";
+
+import { InterfaceTarefa } from "../../interfaces/Tarefa";
+import { TarefaListaItem } from "./TarefaListaItem";
+
+export const TarefasLista = (props: {
+	tarefas: Array<InterfaceTarefa>;
+	funcaoApagar: (tarefa: InterfaceTarefa) => void;
+	funcaoFinalizar: (id: number) => void;
+}) => {
+	return (
+		<List sx={{ width: "100%", bgcolor: "background.paper" }}>
+			{props.tarefas.map((tarefa) => (
+				<TarefaListaItem
+					key={tarefa.id}
+					tarefa={tarefa}
+					cliqueParaApagar={props.funcaoApagar}
+					cliqueParaFinalizar={props.funcaoFinalizar}
+				/>
+			))}
+		</List>
+	);
+};
+
+```
 
 # 8. Ligar o projeto web a API
