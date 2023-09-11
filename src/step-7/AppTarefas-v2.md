@@ -7,7 +7,7 @@ import * as React from "react";
 import { Box, List } from "@mui/material";
 
 import { InterfaceTarefa } from "../interfaces/Tarefa";
-import { TarefaListaItem } from "./tarefa/TarefaListaItem";
+import { TarefaListaItem } from "./Tarefa/TarefaListaItem";
 
 const TarefasLista = () => {
 	return (
