@@ -934,9 +934,12 @@ export const TarefaListaItem = (props: {
    - Criar o componente imterno vazio `TarefaNova` [link versão 7](src/step-7/AppTarefas-v7.md)
    - Adicionar o componente em `AppTarefas` [link versão 8](src/step-7/AppTarefas-v8.md)
    - Montar componente interno `TarefaNova` com uma entrada de texto e um botão [link versão 9](src/step-7/AppTarefas-v9.md)
-5. FIXME Criar a função `handleTarefaNova` para adicionar uma nova tarefa no arquivo `App`
+5. Criar a função `handleTarefaAdicionar` para adicionar uma nova tarefa no arquivo `App`
+   - Adicionar a funcão `setTarefaNova` para o estado `TarefaNova` [link versão 1](src/step-7/App-v1.md)
+   - Criar a função `handleTarefaAdicionar`  [link versão 2](src/step-7/App-v2.md)
+   - Adicionar as 2 funções na chamada ao componente `AppTarefas` [link versão 3](src/step-7/App-v3.md)
 6. FIXME Adicionar função de adicionar nova tarefa no componente `AppTarefas`
-7. FIXME Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
+8. FIXME Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
 
 arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
 ```ts
