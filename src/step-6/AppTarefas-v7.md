@@ -7,7 +7,7 @@ import * as React from "react";
 import List from "@mui/material/List";
 
 import { InterfaceTarefa } from "../interfaces/Tarefa";
-import { TarefaListaItem } from "./tarefa/TarefaListaItem";
+import { TarefaListaItem } from "./Tarefa/TarefaListaItem";
 
 const AppTarefas = (props: {
 	tarefas: Array<InterfaceTarefa>;
