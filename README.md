@@ -938,8 +938,10 @@ export const TarefaListaItem = (props: {
    - Adicionar a funcão `setTarefaNova` para o estado `TarefaNova` [link versão 1](src/step-7/App-v1.md)
    - Criar a função `handleTarefaAdicionar`  [link versão 2](src/step-7/App-v2.md)
    - Adicionar as 2 funções na chamada ao componente `AppTarefas` [link versão 3](src/step-7/App-v3.md)
-6. FIXME Adicionar função de adicionar nova tarefa no componente `AppTarefas`
-8. FIXME Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
+6. Adicionar função de adicionar nova tarefa no componente `AppTarefas`
+   - Adicionar `tarefa`, `funcaoTarefaNovaModificar`, `funcaoAdicionar` em `props` em `AppTarefas` [link versão 10](src/step-7/AppTarefas-v10.md)
+   - Adicionar na chamada ao componente interno `TarefaNova` os atributos `tarefa`, `funcaoTarefaNovaModificar`, `funcaoAdicionar` [link versão 11](src/step-7/AppTarefas-v11.md)
+7. FIXME Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
 
 arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
 ```ts
