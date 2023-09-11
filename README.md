@@ -927,7 +927,7 @@ export const TarefaListaItem = (props: {
    - Corrigir os erros do componente interno `TarefasLista`, adicionando `props` ao componente [link versão 4](src/step-7/AppTarefas-v4.md)
    - Substituir `<List>...</List>` pelo componente interno [link versão 5](src/step-7/AppTarefas-v5.md)
 3. Mover o componente interno `TarefasLista` para o novo arquivo `TarefaLista` [link versão única](src/step-7/TarefasLista.md)
-   - Criar arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
+   - Criar o arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
    - Copiar o conteúdo do componente interno `TarefasLista` para o arquivo `./src/componentes/Tarefa/TarefaLista.tsx`, ajustar as importações e a exportação no arquivo.
    - Apagar componente interno `TarefasLista` e importar o componente do arquivo `./src/componentes/Tarefa/TarefaLista.tsx` em `AppTarefas` [link versão 6](src/step-7/AppTarefas-v6.md)
 4. Criar o componente interno `TarefaNova` em `AppTarefas`
@@ -941,7 +941,20 @@ export const TarefaListaItem = (props: {
 6. Adicionar função de adicionar nova tarefa no componente `AppTarefas`
    - Adicionar `tarefa`, `funcaoTarefaNovaModificar`, `funcaoAdicionar` em `props` em `AppTarefas` [link versão 10](src/step-7/AppTarefas-v10.md)
    - Adicionar na chamada ao componente interno `TarefaNova` os atributos `tarefa`, `funcaoTarefaNovaModificar`, `funcaoAdicionar` [link versão 11](src/step-7/AppTarefas-v11.md)
-7. FIXME Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
+7. Adicionar função de adicionar nova tarefa no componente interno `TarefaNova`
+   - Adicionar na linha 15 `props` com os atributos `tarefa`, `funcaoModificar`, `funcaoAdicionar` [link versão 12](src/step-7/AppTarefas-v12.md)
+   - Adicionar o estado no `<Input.../>` em `TarefaNova` [link versão 13](src/step-7/AppTarefas-v13.md)
+   - Adicionar o evento `onClick` no `IconButton` para adiocionar a nova tarefa em `TarefaNova` [link versão 14](src/step-7/AppTarefas-v14.md)
+   - Adicionar a captura da tecla `Enter` para adicionar a nova tarefa [link versão 15](src/step-7/AppTarefas-v15.md)
+   - FIXME Habiliar ou desabilitar adicionar nova tarefa verificando se estado `tarefa` esta vazio ou não
+8. FIXME Mover o componente interno `TarefaNova` para um arquivo
+   - Criar o arquivo
+   - Copiar o conteúdo de `AppTarefas` para o arquivo`TarefaNova`
+   - Importar os componentes de `TarefaNova`
+   - Exportar o componente `TarefaNova`
+   - Apagar componente interno `TarefaNova` em `AppTarefas`
+   - Importar o componente `TarefaNova` em `AppTarefas`
+   - Limpar as importações em `AppTarefas`
 
 arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
 ```ts
