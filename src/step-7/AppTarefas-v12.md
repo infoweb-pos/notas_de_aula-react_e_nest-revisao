@@ -19,7 +19,7 @@ import { TarefasLista } from "./Tarefa/TarefaLista";
 
 const TarefaNova = (props: {
 	tarefa: string;
-	funcaoTarefaNovaModificar: (texto: string) => void;
+	funcaoModificar: (texto: string) => void;
 	funcaoAdicionar: () => void;
 }) => {
 	return (
