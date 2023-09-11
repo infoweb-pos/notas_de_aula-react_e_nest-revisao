@@ -22,7 +22,6 @@ const AppTarefas = (props: {
 }) => {
 	return (
 		<Box>
-			<TarefaNova />
 			<TarefasLista
 				tarefas={props.tarefas}
 				funcaoApagar={props.funcaoApagar}
