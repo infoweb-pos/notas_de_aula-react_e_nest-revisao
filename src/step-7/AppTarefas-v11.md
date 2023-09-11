@@ -64,3 +64,10 @@ const AppTarefas = (props: {
 export default AppTarefas;
 
 ```
+
+
+- Modificado a linha 45 de `<TarefaNova />` para `<TarefaNova `
+- Adicionado a linha 46 com `tarefa={props.tarefa}` 
+- Adicionado a linha 47 com `funcaoModificar={props.funcaoTarefaNovaModificar}` 
+- Adicionado a linha 48 com `funcaoAdicionar={props.funcaoAdicionar}`
+- Adicionado a linha 49 com `/>`
