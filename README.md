@@ -986,8 +986,13 @@ export const TarefasLista = (props: {
 ```
 
 # 8. Ligar o projeto web a API
-1. Abrir o terminal e executar o projeto da API
-2. Abrir outro terminal e executar o projeto web
+1. Abrir o terminal e executar o projeto da API.
+2. Abrir outro terminal e executar o projeto web.
+3. Verificar os 2 terminais, conforme figura abaixo.
+4. Abrir o projeto web no VS Code
+5. Modificar o arquivo `App.tsx` adicionando o `useEffect` para recuperar dados da API [App.tsx versão 1]()
+6. Como não atualizou a UI, provavél que teve erro, verificar no console de desenvolvedor do navegador. Ver figura abaixo.
+7. Para consertar o problema de CORS na API, editar o arquivo `main.ts` habilitando o CORS [main.ts versão 1]()
 
 ```console
 $ npm run start:dev
@@ -1024,3 +1029,5 @@ $ npm run dev
 ```
 
 ![Saída dos 2 terminais com os 2 projetos em execução](imagens/terminais-executando-projetos.png)
+
+![Verificando erro de carga de dados da API]()
