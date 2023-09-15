@@ -986,3 +986,41 @@ export const TarefasLista = (props: {
 ```
 
 # 8. Ligar o projeto web a API
+1. Abrir o terminal e executar o projeto da API
+2. Abrir outro terminal e executar o projeto web
+
+```console
+$ npm run start:dev
+[08:16:10] Starting compilation in watch mode...
+
+[08:16:13] Found 0 errors. Watching for file changes.
+
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [NestFactory] Starting Nest application...
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [InstanceLoader] TypeOrmModule dependencies initialized +93ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [InstanceLoader] AppModule dependencies initialized +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [InstanceLoader] TypeOrmCoreModule dependencies initialized +30ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [InstanceLoader] TypeOrmModule dependencies initialized +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [InstanceLoader] TarefasModule dependencies initialized +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RoutesResolver] AppController {/}: +12ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RouterExplorer] Mapped {/, GET} route +2ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RoutesResolver] TarefasController {/tarefas}: +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RouterExplorer] Mapped {/tarefas, POST} route +1ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RouterExplorer] Mapped {/tarefas, GET} route +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RouterExplorer] Mapped {/tarefas/:id, GET} route +1ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RouterExplorer] Mapped {/tarefas/:id, PATCH} route +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [RouterExplorer] Mapped {/tarefas/:id, DELETE} route +0ms
+[Nest] 24956  - 15/09/2023, 08:16:14     LOG [NestApplication] Nest application successfully started +2ms
+
+```
+
+```console
+$ npm run dev
+  VITE v4.4.9  ready in 601 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+
+```
+
+![Saída dos 2 terminais com os 2 projetos em execução](imagens/terminais-executando-projetos.png)
