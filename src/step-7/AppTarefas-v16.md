@@ -1,4 +1,4 @@
-# AppTarefas.tsx - Passo 7 - Versão 15
+# AppTarefas.tsx - Passo 7 - Versão 16
 
 
 arquivo `./src/componentes/AppTarefas.tsx`
@@ -77,5 +77,7 @@ export default AppTarefas;
 
 ```
 
-- Adicioando linha 35 com `autoFocus` para o focu do teclado ir para a caixa de texto.
-- Adicionado linha 36 a 40 com o tratamento de quando pressionar a tecla `Enter` adicionar nova tarefa.
+- Apagar as linhas 15 a 45 do componente `TarefaNova`
+- Inserir uma linha nova, na linha 14, com `import { TarefaNova } from "./Tarefa/TarefaNova";`
+- Apagar a linha 10 `import CheckIcon from "@mui/icons-material/Check";`
+- Modificado as importações do `@mui/material`, das linha 2 a 9, para `import {Box} from "@mui/material";`
