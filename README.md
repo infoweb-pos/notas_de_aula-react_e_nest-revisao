@@ -948,13 +948,13 @@ export const TarefaListaItem = (props: {
    - Adicionar a captura da tecla `Enter` para adicionar a nova tarefa [link versão 15](src/step-7/AppTarefas-v15.md)
    - FIXME Habiliar ou desabilitar adicionar nova tarefa verificando se estado `tarefa` esta vazio ou não
 8. FIXME Mover o componente interno `TarefaNova` para um arquivo
-   - Criar o arquivo
-   - Copiar o conteúdo de `AppTarefas` para o arquivo`TarefaNova`
+   - Criar o arquivo `./src/componentes/Tarefa/TarefaNova.tsx`
+   - Copiar o conteúdo de `AppTarefas` para o arquivo `TarefaNova`
    - Importar os componentes de `TarefaNova`
-   - Exportar o componente `TarefaNova`
+   - Exportar o componente `TarefaNova` [link versão única](src/step-7/TarefaNova.md)
    - Apagar componente interno `TarefaNova` em `AppTarefas`
    - Importar o componente `TarefaNova` em `AppTarefas`
-   - Limpar as importações em `AppTarefas`
+   - Limpar as importações em `AppTarefas` [link versão 16](src/step-7/AppTarefas-v16.md)
 
 arquivo `./src/componentes/Tarefa/TarefaLista.tsx`
 ```ts
@@ -990,9 +990,11 @@ export const TarefasLista = (props: {
 2. Abrir outro terminal e executar o projeto web.
 3. Verificar os 2 terminais, conforme figura abaixo.
 4. Abrir o projeto web no VS Code
-5. Modificar o arquivo `App.tsx` adicionando o `useEffect` para recuperar dados da API [App.tsx versão 1]()
+5. Modificar o arquivo `App.tsx` adicionando o `useEffect` para recuperar dados da API [App.tsx versão 1](src/step-8/main-v0.ts)
 6. Como não atualizou a UI, provavél que teve erro, verificar no console de desenvolvedor do navegador. Ver figura abaixo.
-7. Para consertar o problema de CORS na API, editar o arquivo `main.ts` habilitando o CORS [main.ts versão 1]()
+7. Para consertar o problema de CORS na API, editar o arquivo `main.ts` habilitando o CORS [main.ts versão 1](src/step-8/main-v0.ts)
+8. Verificar a correção do erro no navegador, ver imagem abaixo
+9. 
 
 ```console
 $ npm run start:dev
@@ -1030,4 +1032,7 @@ $ npm run dev
 
 ![Saída dos 2 terminais com os 2 projetos em execução](imagens/terminais-executando-projetos.png)
 
-![Verificando erro de carga de dados da API]()
+![Navegador com problema CORS e a não carga de dados da API](imagens/cors-problema.png)
+
+![Navegador corrigido o CORS e a carga de dados vazia](imagens/cors-corrigido.png)
+
