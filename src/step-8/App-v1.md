@@ -3,7 +3,7 @@
 - Adicionado `useEffect` para recuperar dados da API.
 
 
-arquivo `./src/componentes/AppTarefas.tsx`
+arquivo `./src/App.tsx`
 ```ts
 import { useEffect, useState } from "react";
 
