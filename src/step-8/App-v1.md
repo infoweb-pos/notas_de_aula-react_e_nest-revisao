@@ -22,10 +22,7 @@ function App() {
 	]);
 
 	useEffect(() => {
-		const api = axios.create({
-			baseURL: 'http://localhost:3000/'
-		});
-		api.get('/tarefas/').then(resposta => {
+		axios.get('http://localhost:3000//tarefas/').then(resposta => {
 			setTarefas(resposta.data.dados)
 		});
 	});
@@ -78,4 +75,4 @@ export default App;
 
 ```
 
-- Adicionado as linhas 17 a 24 com o `useEffect` que faz a carga de dados da API
+- Adicionado as linhas 17 a 21 com o `useEffect` que faz a carga de dados da API
