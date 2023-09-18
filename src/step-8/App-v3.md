@@ -1,6 +1,7 @@
 # App.tsx - Passo 8 - Versão 3
 
-- Adicionado `useEffect` para recuperar dados da API.
+
+**objetivo**: recuperar dados da API.
 
 
 arquivo `./src/App.tsx`
