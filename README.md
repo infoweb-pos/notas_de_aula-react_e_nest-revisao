@@ -990,11 +990,18 @@ export const TarefasLista = (props: {
 2. Abrir outro terminal e executar o projeto web.
 3. Verificar os 2 terminais, conforme figura abaixo.
 4. Abrir o projeto web no VS Code
-5. Modificar o arquivo `App.tsx` adicionando o `useEffect` para recuperar dados da API [App.tsx versão 1](src/step-8/main-v0.ts)
+5. Modificar o arquivo `App.tsx` adicionando o `useEffect` para recuperar dados da API [App.tsx versão 1](src/step-8/App-v1.md)
 6. Como não atualizou a UI, provavél que teve erro, verificar no console de desenvolvedor do navegador. Ver figura abaixo.
-7. Para consertar o problema de CORS na API, editar o arquivo `main.ts` habilitando o CORS [main.ts versão 1](src/step-8/main-v0.ts)
+7. Para consertar o problema de CORS na API, editar o arquivo `main.ts` habilitando o CORS [main.ts versão 1](src/step-8/main-v0.md)
 8. Verificar a correção do erro no navegador, ver imagem abaixo
-9. 
+9. Modificar a função `handleTarefaAdicionar` para chamar a API [App.tsx versão 2](src/step-8/App-v2.md)
+10. Reutilizar a base da URL para as 2 chamadas a API  [App.tsx versão 3](src/step-8/App-v3.md)
+11. Modificar API para apagar realmente a tarefa
+    - Modificar a função de apagar `remove` no arquivo `tarefas.service.ts` [tarefa.service.ts versão 1](src/step-8/tarefa.service-v1.md)
+    - Modificar na função de receber a requisição de apagar `remove` no arquivo `tarefas.controller.ts` [tarefa.controller versão 1](src/step-8/tarefa.controller-v1.md)
+12. Modificar a função `handleTarefaApagar` da interface web para requisitar a API apagar a tarefa [App.tsx versão 4](src/step-8/App-v4.md)
+13. FIXME Modificar a API para marcar a tarefa como realizada
+14. FIXME Modificar a função `handleTarefaFinalizar` da interface web para requisitar a API marcar a tarefa como realizada
 
 ```console
 $ npm run start:dev
