@@ -1,3 +1,10 @@
+# App.tsx - Passo 8 - Versão 4
+
+
+**objetivo**: apagar uma tarefa na API.
+
+
+arquivo `./src/App.tsx`
 
 
 ```ts
@@ -69,3 +76,7 @@ function App() {
 export default App;
 
 ```
+
+- modificado a função `handleTarefaApagar` para requisitar remoção da API
+  - Não precisa atualizar o estado `tarefas` porque o `useEffect` irá ser acionado automaticamente
+  - O `useEffect` é o responsável por atualizar o estado `tarefas` requisitando tarefas da API
