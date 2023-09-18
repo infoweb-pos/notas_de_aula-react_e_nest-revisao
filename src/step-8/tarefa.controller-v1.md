@@ -73,4 +73,4 @@ export class TarefasController {
   - linha 48 define também um constante `affected` do objeto que resulta da chamada a `remove`. esta constante informa quantos registros foram afetados do repositório.
   - linha 49 verifica se foi afetado 1 registro e assim apagado a tarefa, retornando um objeto `json` nas linhas 50 a 53
   - linha 54 é o caso de não ter apagado a tarefa, retorna objeto `json` informando a não remoção nas linhas 55 a 58
-- 
+
