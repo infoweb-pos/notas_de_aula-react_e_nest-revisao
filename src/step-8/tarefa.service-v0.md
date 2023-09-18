@@ -1,6 +1,6 @@
 # API - tarefa.service.ts - passo 8 - versão inicial
 
-arquivo `./src/tarefas/main.ts`
+arquivo `./src/tarefas/tarefa.service.ts`
 ```ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
