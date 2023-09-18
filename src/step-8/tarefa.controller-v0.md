@@ -2,10 +2,6 @@
 
 arquivo `./src/tarefas/tarefa.controller.ts`
 ```ts
-# API - tarefa.controller.ts - passo 8 - versão 1
-
-arquivo `./src/tarefas/tarefa.controller.ts`
-```ts
 import {
   Controller,
   Get,
@@ -56,7 +52,5 @@ export class TarefasController {
     return this.tarefasService.remove(+id);
   }
 }
-
-```
 
 ```
